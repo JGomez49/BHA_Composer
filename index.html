@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mostar BHA</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style type="text/css">
+
+      section {
+        height: 1500px;
+      }
+
+      .PDC_bit {
+        margin-left: 2px;
+        width: 75px;
+        height: 65px;
+      }
+
+      .tricone_bit {
+        margin-left: 14px;
+        width: 50px;
+        height: 50px;
+      }
+
+      .PDM {
+        margin-left: 21px;
+        width: 40px;
+        height: 300px;
+      }
+
+      .DC {
+        margin-left: 20px;
+        width: 38px;
+        height: 200px;
+      }
+
+      .NMDC {
+        margin-left: 20px;
+        width: 38px;
+        height: 200px;
+      }
+
+      .string_stab {
+        margin-left: 6px;
+        width: 63px;
+        height: 120px;
+      }
+
+      .Xover {
+        margin-left: 20px;
+        width: 38px;
+        height: 80px;
+      }
+
+      .UBHO {
+        margin-left: 20px;
+        width: 38px;
+        height: 90px;
+      }
+
+      .LKDsub {
+        margin-left: 20px;
+        width: 38px;
+        height: 80px;
+      }
+
+      .reamer {
+        margin-left: 20px;
+        width: 42px;
+        height: 120px;
+      }
+
+      .DP {
+        margin-left: 22px;
+        width: 35px;
+        height: 200px;
+      }
+
+      .agitator {
+        margin-left: 22px;
+        width: 35px;
+        height: 110px;
+      }
+
+      .HWDP {
+        margin-left: 20px;
+        width: 38px;
+        height: 200px;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="p-4"></div>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark_ border" style="background-color: rgb(0,0,51);">
+
+        <div class="container-fluid">
+
+          <img src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665775543/mostar2-PhotoRoom_aawjkc.png" width="90px">
+
+          <a class="navbar-brand">BHA Composer</a>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" 
+              aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarColor02">
+
+            <ul class="navbar-nav me-auto">
+
+              <li class="nav-item dropdown border btn btn-outline-info">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" 
+                  aria-haspopup="true" aria-expanded="false">Add Tools
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" onclick="insert_tool(bitHTML)">PDC Bit</a>
+                  <a class="dropdown-item" onclick="insert_tool(triconebitHTML)">Tricone Bit</a>
+                  <a class="dropdown-item" onclick="insert_tool(PDMHTML)">PDM</a>
+                  <a class="dropdown-item" onclick="insert_tool(DCHTML)">Drill Collar</a>
+                  <a class="dropdown-item" onclick="insert_tool(StringStabHTML)">String Stab.</a>
+                  <a class="dropdown-item" onclick="insert_tool(XoverHTML)">Xover</a>
+                  <a class="dropdown-item" onclick="insert_tool(UBHOHTML)">UBHO</a>
+                  <a class="dropdown-item" onclick="insert_tool(NMDCHTML)">NMDC</a>
+                  <a class="dropdown-item" onclick="insert_tool(LKDsubHTML)">Lockdown Sub</a>
+                  <a class="dropdown-item" onclick="insert_tool(DPHTML)">Drill Pipe</a>
+                  <a class="dropdown-item" onclick="insert_tool(reamerHTML)">Reamer</a>
+                  <a class="dropdown-item" onclick="insert_tool(agitatorHTML)">Agitator</a>
+                  <a class="dropdown-item" onclick="insert_tool(HWDPHTML)">HWDP</a>
+              </li>
+
+              <li class="nav-item border btn btn-outline-success">
+                <a class="nav-link" onclick="addColumn()">Add Column</a>
+              </li>
+
+              <li class="nav-item border btn btn-outline-success">
+                <a class="nav-link" onclick="window.print()">Print</a>
+              </li>            
+              
+
+            </ul>
+
+          </div>
+            
+        </div>
+      </nav>
+
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark border_" style="background-color: rgb(0,0,51);">
+
+        <div class="container-fluid">
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" 
+              aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarColor02">
+
+            <ul class="navbar-nav me-auto">
+
+            <li>
+              <div class="form-group mx-1">
+                <label class="col-form-label col-form-label-sm">Company</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Company">
+              </div>
+            </li>
+            
+            <li>
+              <div class="form-group mx-1">
+                <label class="col-form-label col-form-label-sm">Rig</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Rig">
+              </div>
+            </li>
+
+            <li>
+              <div class="form-group mx-1">
+                <label class="col-form-label col-form-label-sm">Well Name</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Well Name">
+              </div>
+            </li>
+
+            <li>
+              <div class="form-group mx-1">
+                <label class="col-form-label col-form-label-sm">Field</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Field">
+              </div>
+            </li>
+
+            <li>
+              <div class="form-group mx-1">
+                <label class="col-form-label col-form-label-sm">Job#</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Job#">
+              </div>
+            </li>
+
+            <li>
+              <div class="form-group mx-1">
+                <label class="col-form-label col-form-label-sm">BHA#</label>
+                <input class="form-control form-control-sm" type="text" placeholder="BHA#">
+              </div>
+            </li>
+
+            <li>
+              <div class="form-group mx-1">
+                <label class="col-form-label col-form-label-sm">Date</label>
+                <input class="form-control form-control-sm" type="text" placeholder="Date">
+                <!-- <input type="date"> -->
+              </div>
+            </li>
+
+            </ul>
+          </div>            
+        </div>
+      </nav>
+
+
+      <div class="p-2"></div>
+      <div class="row align-items-start" id="contenedorDeColumnas">
+
+        <!------------------------------ Testing Zone --------------------------->
+        
+        <!-- <div class="col-3" id="col2">
+          <section class="text-bg-dark">
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center HWDP" 
+                  >
+                  <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      HWDP
+                      L: 9.5m
+                      C.Top: 4" FH
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center agitator" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Agitator
+                      L: 5.08m
+                      C.Top: 4" FH
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665773040/drill_pipe2-removebg-preview_zankn3.png"
+                    class="img-fluid rounded-center DP" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Drill Pipe
+                      L: 9.5m
+                      C.Top: 4" FH
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1684260238/reamer3-removebg_dn0xyv.png"
+                    class="img-fluid rounded-center reamer" 
+                    width="70px"
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Reamer
+                      L: 1.42m
+                      C.Top: 4" FH
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center Xover" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="5" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Xover
+                      L: 0.37m
+                      C.Top: 3.5" IF
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1684257506/UBHO-removebg_x56wwd.png"
+                    class="img-fluid rounded-center LKDsub" 
+                  >
+                <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="5" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Lockdown Sub
+                      L: 0.89m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center NMDC" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      NMDC
+                      L: 8.26m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1684257506/UBHO-removebg_x56wwd.png"
+                    class="img-fluid rounded-center UBHO" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="5" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      UBHO
+                      L: 0.76m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>
+
+            
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665771443/spiral_stab2-removebg-preview_njqnyv.png"
+                    class="img-fluid rounded-center string_stab" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      String Stb.
+                      L: 0.80m
+                      C.Top: 4" FH
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>
+            
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center DC" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Drill Collar
+                      L: 9.50m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>
+
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665776750/Mostar_Motor3-removebg-preview_dkg1v0.png"
+                    class="img-fluid rounded-center PDM"
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      PDM
+                      L: 8.58m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" Reg
+                    </textarea>
+              </div>
+            </div>
+
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665774953/bit_tricone3-remo-removebg-preview_orkv7z.png" 
+                    class="img-fluid rounded-center tricone_bit"
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="3" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Tri-Cone Bit
+                      L: 0.30m
+                    </textarea>
+              </div>
+            </div>
+
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665762065/bit-pdc-2-removebg-preview_jqyvef.png" 
+                    class="img-fluid rounded-center PDC_bit"
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="3" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      PDC Bit
+                      L: 0.20m
+                    </textarea>
+              </div>
+            </div>
+
+
+          </section>
+        </div> -->
+
+        <!-- -------------------------End of Testing--------------------------------- -->
+
+
+        <div class="col-3 columna" id="col1">
+          <section class="text-bg-dark"></section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
+</script>
+
+<script type="text/javascript">
+
+  // let PDCbit = "https://res.cloudinary.com/metacortexjohn/image/upload/v1665762065/bit-pdc-2-removebg-preview_jqyvef.png";
+  // let pdm = "https://res.cloudinary.com/metacortexjohn/image/upload/v1665776750/Mostar_Motor3-removebg-preview_dkg1v0.png";
+
+  // let p = document.getElementsByTagName('a');
+  // let choice = document.getElementsByClassName('card-img-overlay');
+  // let dragItem = null;
+
+  // for (let i of p) {
+  //   i.addEventListener('dragstart', dragStart);
+  //   i.addEventListener('dragend', dragEnd);
+  // }
+
+  // for (j of choice) {
+  //   j.addEventListener('dragover', dragOver);
+  //   j.addEventListener('dragenter', dragEnter);
+  //   j.addEventListener('dragleave', dragLeave);
+  //   j.addEventListener('drop', Drop);
+  // }
+
+  // document.getElementById('btnInsertBit').addEventListener('click', ()=>{insert_tool(bitHTML)});
+  // document.getElementById('btnInsertPDM').addEventListener('click', ()=>{insert_tool(PDMHTML)});
+  // document.getElementById('btnInsertDC').addEventListener('click', ()=>{insert_tool(DCHTML)});
+  // document.getElementById('btnAddCol').addEventListener('click', ()=>{addColumn()});
+
+  // bit: "https://res.cloudinary.com/metacortexjohn/image/upload/v1665762065/bit-pdc-2-removebg-preview_jqyvef.png"
+  // motor: "https://res.cloudinary.com/metacortexjohn/image/upload/v1665776750/Mostar_Motor3-removebg-preview_dkg1v0.png"
+  // DC: "https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png" 
+  // String_Stab: "https://res.cloudinary.com/metacortexjohn/image/upload/v1665771443/spiral_stab2-removebg-preview_njqnyv.png"
+  // UBHO: "https://res.cloudinary.com/metacortexjohn/image/upload/v1684257506/UBHO-removebg_x56wwd.png"
+  // DP: "https://res.cloudinary.com/metacortexjohn/image/upload/v1665773040/drill_pipe2-removebg-preview_zankn3.png"
+  // Reamer: "https://res.cloudinary.com/metacortexjohn/image/upload/v1684260238/reamer3-removebg_dn0xyv.png"
+
+
+  let bitHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665762065/bit-pdc-2-removebg-preview_jqyvef.png"
+                    class="img-fluid rounded-center PDC_bit"
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="3" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      PDC Bit
+                      L: 0.20m
+                    </textarea>
+              </div>
+            </div>`
+
+      
+  let triconebitHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665774953/bit_tricone3-remo-removebg-preview_orkv7z.png" 
+                    class="img-fluid rounded-center tricone_bit"
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="3" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Tri-Cone Bit
+                      L: 0.30m
+                    </textarea>
+              </div>
+            </div>`
+
+
+  let PDMHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665776750/Mostar_Motor3-removebg-preview_dkg1v0.png"
+                    class="img-fluid rounded-center PDM"
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      PDM
+                      L: 8.58m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" Reg
+                    </textarea>
+              </div>
+            </div>`
+
+  let DCHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center DC" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Drill Collar
+                      L: 9.50m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>`
+
+  let NMDCHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center NMDC" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      NMDC
+                      L: 8.26m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>`
+
+  let StringStabHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665771443/spiral_stab2-removebg-preview_njqnyv.png"
+                    class="img-fluid rounded-center string_stab" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      String Stb.
+                      L: 0.80m
+                      C.Top: 4" FH
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>`
+
+  let XoverHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center Xover" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="5" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Xover
+                      L: 0.37m
+                      C.Top: 3.5" IF
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>`
+
+  let UBHOHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1684257506/UBHO-removebg_x56wwd.png"
+                    class="img-fluid rounded-center UBHO" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="5" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      UBHO
+                      L: 0.76m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>`
+
+  let LKDsubHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1684257506/UBHO-removebg_x56wwd.png"
+                    class="img-fluid rounded-center LKDsub" 
+                  >
+                <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="5" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Lockdown Sub
+                      L: 0.89m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>`
+
+  let reamerHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1684260238/reamer3-removebg_dn0xyv.png"
+                    class="img-fluid rounded-center reamer" 
+                    width="70px"
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Reamer
+                      L: 1.42m
+                      C.Top: 4" FH
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>`
+
+  let DPHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665773040/drill_pipe2-removebg-preview_zankn3.png"
+                    class="img-fluid rounded-center DP" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Drill Pipe
+                      L: 9.5m
+                      C.Top: 4" FH
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>`
+
+  let agitatorHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center agitator" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      Agitator
+                      L: 5.08m
+                      C.Top: 4" FH
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>`
+
+  let HWDPHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1665772162/Drill_collar_straight2-removebg-preview_vsp1vj.png"
+                    class="img-fluid rounded-center HWDP" 
+                  >
+                  <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      HWDP
+                      L: 9.5m
+                      C.Top: 4" FH
+                      C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>`
+  
+  // --------------------------Funciones-------------------------------- 
+
+
+  function dragStart() {
+    dragItem = this;
+    setTimeout(() => this.style.display = "none", 0);
+  }
+
+
+
+  function dragEnd() {
+    setTimeout(() => this.style.display = "flex", 0);
+    dragItem = null;
+  }
+
+
+
+
+  function Drop() {
+    this.append(dragItem);
+  }
+
+
+
+  function dragOver(e) {
+    e.preventDefault()
+    this.style.border = "2px dotted black"
+  }
+
+
+
+  function dragEnter(e) {
+    e.preventDefault()
+  }
+
+
+
+  function dragLeave() {
+    this.style.border = "none"
+  }
+
+
+
+    // function whitening(){
+    //     let selection = document.querySelectorAll('.BHA p')
+    //     selection.forEach(element => {
+    //         element.style.background = 'white'
+    //     });
+
+    //     selection = document.querySelectorAll('.Inventory p')
+    //     selection.forEach(element => {
+    //         element.style.background = 'grey'
+    //     });
+    // }
+
+
+  function create(htmlStr) {
+    let frag = document.createDocumentFragment(),
+    temp = document.createElement('div');
+    temp.innerHTML = htmlStr;
+    while (temp.firstChild) {
+      frag.appendChild(temp.firstChild);
+    }
+    return frag;
+  }
+
+
+
+  function insert_tool(htmlStr) {
+    let cols = document.getElementsByTagName('section').length;
+    let fragment = create(htmlStr);
+    document.getElementById(`col${cols}`).getElementsByTagName('section')[0].insertBefore(fragment, document.getElementById(`col${cols}`).getElementsByTagName('section')[0].childNodes[0]);
+  }
+
+
+
+  function removeIt(element) {
+    let parent = element.parentNode;
+    parent.remove();
+  };
+
+
+
+  function addColumn(){
+    let cols = document.getElementsByTagName('section').length;
+    if(cols <= 3){
+      let colsID = cols + 1;
+      let columna = `<div class="col-3 columna" id="col${colsID}">
+                      <section class="text-bg-dark" ondblclick="removeIt(this)"></section>
+                    </div>`
+      let sitio = document.getElementById('contenedorDeColumnas')
+      let fragment = create(columna);
+      sitio.appendChild(fragment);
+    };      
+  };
+
+</script>
