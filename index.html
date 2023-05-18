@@ -49,6 +49,12 @@
         width: 38px;
         height: 200px;
       }
+      
+      .NMFC {
+        margin-left: -21px;
+        width: 120px;
+        height: 250px;
+      }
 
       .string_stab {
         margin-left: 6px;
@@ -138,6 +144,7 @@
                   <a class="dropdown-item" onclick="insert_tool(XoverHTML)">Xover</a>
                   <a class="dropdown-item" onclick="insert_tool(UBHOHTML)">UBHO</a>
                   <a class="dropdown-item" onclick="insert_tool(NMDCHTML)">NMDC</a>
+                  <a class="dropdown-item" onclick="insert_tool(NMFCHTML)">NMFC</a>
                   <a class="dropdown-item" onclick="insert_tool(LKDsubHTML)">Lockdown Sub</a>
                   <a class="dropdown-item" onclick="insert_tool(DPHTML)">Drill Pipe</a>
                   <a class="dropdown-item" onclick="insert_tool(reamerHTML)">Reamer</a>
@@ -255,6 +262,26 @@
                       L: 9.5m
                       C.Top: 4" FH
                       C.Bottom: 4" FH
+                    </textarea>
+              </div>
+            </div>
+
+
+            <div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1684371148/NMFC_SCHM-removebg_v26k0d.png"
+                    class="img-fluid rounded-center NMFC" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      NMFC
+                      L: 8.26m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
                     </textarea>
               </div>
             </div>
@@ -521,9 +548,6 @@
 
 <script type="text/javascript">
 
-  // let PDCbit = "https://res.cloudinary.com/metacortexjohn/image/upload/v1665762065/bit-pdc-2-removebg-preview_jqyvef.png";
-  // let pdm = "https://res.cloudinary.com/metacortexjohn/image/upload/v1665776750/Mostar_Motor3-removebg-preview_dkg1v0.png";
-
   // let p = document.getElementsByTagName('a');
   // let choice = document.getElementsByClassName('card-img-overlay');
   // let dragItem = null;
@@ -552,6 +576,7 @@
   // UBHO: "https://res.cloudinary.com/metacortexjohn/image/upload/v1684257506/UBHO-removebg_x56wwd.png"
   // DP: "https://res.cloudinary.com/metacortexjohn/image/upload/v1665773040/drill_pipe2-removebg-preview_zankn3.png"
   // Reamer: "https://res.cloudinary.com/metacortexjohn/image/upload/v1684260238/reamer3-removebg_dn0xyv.png"
+  // NMFC: "https://res.cloudinary.com/metacortexjohn/image/upload/v1684371148/NMFC_SCHM-removebg_v26k0d.png"
 
 
   let bitHTML = `<div class="card text-bg-dark border-dark border border-0">
@@ -640,6 +665,25 @@
                       style="background: rgba(0,0,0,0); font-size: 10px;"
                       >
                       NMDC
+                      L: 8.26m
+                      C.Top: 3.5" IF
+                      C.Bottom: 3.5" IF
+                    </textarea>
+              </div>
+            </div>`
+
+  let NMFCHTML = `<div class="card text-bg-dark border-dark border border-0">
+              <img 
+                    src="https://res.cloudinary.com/metacortexjohn/image/upload/v1684371148/NMFC_SCHM-removebg_v26k0d.png"
+                    class="img-fluid rounded-center NMFC" 
+                  >
+              <div class="card-img-overlay" ondblclick="removeIt(this)">
+                    <textarea 
+                      class="form-control text-white"
+                      rows="7" 
+                      style="background: rgba(0,0,0,0); font-size: 10px;"
+                      >
+                      NMFC
                       L: 8.26m
                       C.Top: 3.5" IF
                       C.Bottom: 3.5" IF
